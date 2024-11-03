@@ -22,9 +22,13 @@ const Header = () => {
         <ul className="flex gap-6 justify-center font-DMs text-[16px] font-semibold text-[#767676] cursor-pointer">
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"> <Link to="/">Home</Link></li>
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/shop">Shop</Link></li>
-          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">About</li>
-          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Contacts</li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/about">About</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/contacts">Contacts</Link> </li>
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Journal</li>
+          
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"> <Link to="/login">Login</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/signup">SignUp</Link></li>
+         
         </ul>
       </div>
 

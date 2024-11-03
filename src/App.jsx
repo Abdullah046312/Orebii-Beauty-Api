@@ -6,12 +6,23 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import ProductsDetails from "./pages/ProductsDetails";
+import About from "./pages/About";
+import Contacts from "./pages/Contacts";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+
 
 let router = createBrowserRouter(createRoutesFromElements(
   <Route element={<Layout/>}>
     <Route index element= {<Home />}></Route>
     <Route path="/shop" element={<Shop/>}></Route>
     <Route path="/shop/:id" element={<ProductsDetails/>}></Route>
+    <Route path="/about" element={<About/>}></Route>
+    <Route path="/contacts" element={<Contacts/>}></Route>
+    <Route path="/login" element={<Login/>}></Route>
+    <Route path="/signup" element={<SignUp/>}></Route>
+    
+   
 
   </Route>
 ))

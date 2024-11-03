@@ -19,11 +19,11 @@ const ShopFirstInner = ({allPage, activeGrid}) => {
   return (
     
     <>
-    <div className={`${activeGrid == "active"  ? "w-[100%]" : "flex flex-wrap gap-5 "}`}>
+    <div className={`${activeGrid == "active"  ? "w-[100%] flex flex-col gap-5" : "flex flex-wrap gap-5 "}`}>
     {allPage.map((item) => (
        
        
-     <div className='w-[32%]  sm:w-1/2 md:w-[32%]   lg:w-[32%] border-[1px] border-[#dddd] bg-[#f8f9fa] rounded-[8px] shadow-inner '>
+     <div className='w-[32%] sm:w-1/2 md:w-[32%]   lg:w-[32%] border-[1px] border-[#dddd] bg-[#f8f9fa] rounded-[8px] shadow-inner '>
 
       
      
