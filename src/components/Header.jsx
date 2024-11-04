@@ -58,13 +58,17 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-16 left-0 right-0 bg-[#34b1b1] w-full  shadow-lg md:hidden rounded-lg z-10">
-          <ul className="flex flex-col items-center p-6 space-y-4">
-            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-[#5BBCFF] duration-300 ease-in-out">Home</li>
-            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-[#5BBCFF] duration-300 ease-in-out">Shop</li>
-            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-[#5BBCFF] duration-300 ease-in-out">About</li>
-            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-[#5BBCFF] duration-300 ease-in-out">Contacts</li>
-            <li className="text-[16px] font-bold text-[#F3F8FF] hover:text-[#5BBCFF] duration-300 ease-in-out">Journal</li>
-          </ul>
+          <ul className="flex gap-6 justify-center font-DMs text-[16px] font-semibold text-[#767676] cursor-pointer">
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"> <Link to="/">Home</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/shop">Shop</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/about">About</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/contacts">Contacts</Link> </li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold">Journal</li>
+          
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"> <Link to="/login">Login</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/signup">SignUp</Link></li>
+         
+        </ul>
         </div>
       )}
     </Container>
