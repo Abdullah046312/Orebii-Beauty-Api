@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Container from './Container';
 import { IoIosArrowForward } from "react-icons/io";
 import { FaPlus, FaMinus, FaHeart,  FaShoppingCart } from "react-icons/fa";
@@ -18,6 +18,8 @@ const ShopFirstpart = () => {
     let [currentPage, setCurrentPage] = useState(1);
     let [perPage, setPerPage] = useState(6);
     let [activeGrid, setActiveGrid] = useState("")
+    let [category, setCategory] = useState([])
+    let [categoryFilter, setCategoryFilter] = useState([])
 
     let lastPage = currentPage * perPage
     let fistPage = lastPage - perPage
@@ -49,6 +51,19 @@ const ShopFirstpart = () => {
    let handleMulti = () =>{
     setActiveGrid("active");
    };
+
+   useEffect(()=>{
+    setCategory([...new Set(info.map((item)=> item.category))])
+   },[info])
+
+   
+   let handleCategory = (citem) => {
+    let filterItem = info.filter((item)=> item.category == citem);
+    setCategoryFilter(filterItem)
+    
+   }
+   console.log(categoryFilter);
+   
         
 
     
@@ -78,15 +93,26 @@ const ShopFirstpart = () => {
                     
                     <div className="mt-[50px]">
                             <div className="flex justify-start gap-[20px] items-center cursor-pointer" onClick={() => setShow(!show)}>
-                                <h2 className='text-[#262626] font-bold font-DMs text-[20px]'>Shop by Category</h2>
+                                <h2 className='text-[#262626] font-bold font-DMs text-[22px]'>Shop by Category</h2>
                                 {show ? <FaMinus /> : <FaPlus />}
                             </div>
                             {show && (
-                                <ul className="mt-3">
-                                    {['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'].map((category, index) => (
-                                        <li key={index} className='text-[16px] font-DMs font-normal text-[#767676] mt-3'>{category}</li>
-                                    ))}
-                                </ul>
+                                // <ul className="mt-3">
+                                //     {['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'].map((category, index) => (
+                                //         <li key={index} className='text-[16px] font-DMs font-normal text-[#767676] mt-3'>{category}</li>
+                                //     ))}
+                                // </ul>
+                              
+                              <ul>
+                                {category.map((item)=>(
+                                    <li 
+                                    onClick={()=> handleCategory(item)} 
+                                    className='text-[18px] text-[#767676] font-DMs font-normal cursor-pointer py-2 capitalize'>{item}</li>
+
+                                ))}
+                               
+                               
+                              </ul>
                             )}
                         </div>
                         </div>
@@ -124,7 +150,10 @@ const ShopFirstpart = () => {
                             </div>
                         </div>
                         <div className="flex gap-5 flex-wrap w-full  mt-10">
-                        <ShopFirstInner allPage={allPage} activeGrid={activeGrid} />
+                        <ShopFirstInner allPage={allPage} 
+                        activeGrid={activeGrid}
+                        categoryFilter={categoryFilter}
+                        />
                          <div className="flex justify-center w-full">
                          <Pagination pageNumber={pageNumber} 
                          paginate={paginate}
