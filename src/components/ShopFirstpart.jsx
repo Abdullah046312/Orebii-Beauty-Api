@@ -28,7 +28,8 @@ const ShopFirstpart = () => {
 
     let pageNumber = []
 
-    for (let i = 0; i < Math.ceil(info.length / perPage); i++){
+    for (let i = 0; i < Math.ceil
+        (categoryFilter.length > 0 ? categoryFilter : info.length / perPage); i++){
         pageNumber.push(i)
 
     }
