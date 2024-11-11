@@ -8,8 +8,12 @@ import { IoCart } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import Flex from "./Flex";
 import rolex from "../assets/rolex.png";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navber = () => {
+  let navigate = useNavigate();
   const cateRef = useRef();
   const accRef = useRef();
   const cartRef = useRef();
@@ -29,13 +33,24 @@ const Navber = () => {
         setIsCart(false);
       }
     };
-    
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
+  const handleCheck = () => {
+    toast("Welcome to Checkout Page!");
+    setTimeout(() => {
+      navigate("/Checkout");
+    }, 2000);
+  };
+ let handlecart = () =>{
+  toast("Welcome to Checkout Page!");
+  setTimeout(() =>{
+    navigate("/Cart")
+  }, 2000)
+ };
   return (
     <section className="bg-[#F5F5F3] py-5">
       <Container>
@@ -43,7 +58,7 @@ const Navber = () => {
           {/* Shop by Category */}
           <div className="w-full md:w-1/4 relative mb-4 md:mb-0" ref={cateRef}>
             <div className="flex items-center gap-x-2 cursor-pointer" onClick={() => setIsCateNav(!isCateNav)}>
-              <HiMiniBars2 className="text-[20px]"/>
+              <HiMiniBars2 className="text-[20px]" />
               <h3 className="text-[14px] sm:text-[16px] md:text-[18px]">Shop by Category</h3>
             </div>
             {isCateNav && (
@@ -77,16 +92,16 @@ const Navber = () => {
               {/* Account Dropdown */}
               <div ref={accRef} className="flex items-center cursor-pointer" onClick={() => setIsAcc(!isAcc)}>
                 <FaUser />
-                <IoMdArrowDropdown className="text-[20px]"/>
+                <IoMdArrowDropdown className="text-[20px]" />
               </div>
               {isAcc && (
                 <div className="bg-[#262626] w-[100px] md:w-[150px] absolute md:left-[80px] top-full mt-2 z-10">
                   <ul className="py-3">
-                    <li className="font-sans text-[16px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-blue-600 hover:pl-6 duration-300 ease-in-out">
-                      Account
+                    <li className="font-sans text-[16px] text-white font-normal pl-3 pt-3 pb-2 border-b-[1px] border-blue-600 hover:pl-6 duration-300 ease-in-out cursor-pointer">
+                      <Link to="/SignUp">SignUp</Link>
                     </li>
-                    <li className="font-sans text-[16px] text-white font-normal pl-3 pt-3 pb-2 hover:pl-6 duration-300 ease-in-out">
-                      Log-Out
+                    <li className="font-sans text-[16px] text-white font-normal pl-3 pt-3 pb-2 hover:pl-6 duration-300 ease-in-out cursor-pointer">
+                      <Link to="/MyAccount">Account</Link>
                     </li>
                   </ul>
                 </div>
@@ -94,7 +109,7 @@ const Navber = () => {
 
               {/* Cart Dropdown */}
               <div ref={cartRef} className="relative cursor-pointer" onClick={() => setIsCart(!isCart)}>
-                <IoCart className="text-[20px]"/>
+                <IoCart className="text-[20px]" />
               </div>
               {isCart && (
                 <div className="absolute right-0 top-full mt-2 w-full md:w-[360px] bg-[rgba(233,230,230,0.9)] z-10">
@@ -113,10 +128,10 @@ const Navber = () => {
                       Subtotal: <span className="text-black font-bold">$780.00</span>
                     </h5>
                     <div className="flex flex-wrap md:flex-nowrap my-5">
-                      <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                      <button onClick={handlecart} className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
                         View Cart
                       </button>
-                      <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+                      <button onClick={handleCheck} className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[12px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
                         Check Out
                       </button>
                     </div>
@@ -127,6 +142,9 @@ const Navber = () => {
           </div>
         </Flex>
       </Container>
+
+      {/* ToastContainer should be here for global notifications */}
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
     </section>
   );
 };

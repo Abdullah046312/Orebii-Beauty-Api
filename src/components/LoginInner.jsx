@@ -8,7 +8,7 @@ const LoginInner = () => {
         <section>
             <Container>
                 <div className="w-full">
-                    <h2 className='text-[49px] font-DMs font-bold text-[#262626] pt-10'>About</h2>
+                    <h2 className='text-[49px] font-DMs font-bold text-[#262626] pt-10'>Login</h2>
                     <ul className='flex items-center text-[12px] font-DMs font-normal text-[#767676] cursor-pointer'>
                         <Link to="/">Home</Link>
                         <li><IoIosArrowForward /></li>

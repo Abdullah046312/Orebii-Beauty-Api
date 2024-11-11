@@ -31,6 +31,9 @@ const ContactsInner = () => {
         <h4 className='text-[18px] font-DMs font-bold text-[#262626]'>Message</h4>
         <input className='border-b w-full py-3 focus:outline-none text-[14px] font-DMs font-normal text-[#767676] ' type="text" placeholder='Your message here' />
     </div>
+    <div className="">
+                        <button className='py-3 px-16 bg-white border-[2px] border-[#262626] text-black mt-10 text-[18px] font-bold font-DMs hover:bg-black hover:text-white ease-in-out duration-300'>Post</button>
+                    </div>
 </div>
 <div className="w-full py-20">
 <div className="">

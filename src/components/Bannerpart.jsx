@@ -69,8 +69,8 @@ const Bannerpart = () => {
  <Slider {...settings}>
         {[banner, headphone1, headphone2, headphone3].map((image, index) => (
           <div key={index} className="relative w-full">
-            <img src={image} alt={`Banner ${index + 1}`} className="w-full md:h-[650px] h-[200px]" />
-            <div className="absolute md:top-[167px] md:left-[293px] top-1 left-5  ">
+            <img src={image} alt={`Banner ${index + 1}`} className="w-full" />
+            {/* <div className="absolute md:top-[167px] md:left-[293px] top-1 left-5  ">
               <h2 className="text-[26px] md:text-[49px] text-[#262626] font-DMs font-bold mt-5">Final Offer</h2>
               <div className="flex justify-center items-center md:mt-3 md:gap-3 gap-2">
                 <h4 className="text-[14px] md:text-[16px] text-[#6D6D6D] font-DMs font-normal">Up to </h4>
@@ -83,7 +83,7 @@ const Bannerpart = () => {
               </button>
               
               </Link>
-            </div>
+            </div> */}
           </div>
         ))}
       </Slider>

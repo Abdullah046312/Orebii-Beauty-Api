@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Container from '../components/Container'
 import { IoIosArrowForward } from "react-icons/io";
 import Flex from '../components/Flex';
@@ -15,10 +15,16 @@ import { FaRegStar } from "react-icons/fa";
 import { FaPlus, FaMinus, } from "react-icons/fa";
 import line from "../assets/line.png"
 import { Rate } from "antd";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slice/ProductSlice';
 
 
 
 const ProductsDetails = () => {
+  let navigate = useNavigate()
+  let dispatch = useDispatch()
   let productId = useParams()
   let [show, setShow] = useState(false);
   let [singleProduct, setSingleProduct] = useState({});
@@ -48,6 +54,18 @@ const ProductsDetails = () => {
 
  let discount = singleProduct.price * singleProduct.discountPercentage / 100
  let newPrice = singleProduct.price - discount
+
+ let handleCart = (item) =>{
+  
+  dispatch(addToCart({...item, qun: 1}))
+  
+  toast("Welcome to Cart Page!");
+  setTimeout(()=>{
+    navigate("/cart")
+
+  }, 2000)
+  
+ }
  
   
 
@@ -119,10 +137,10 @@ const ProductsDetails = () => {
           <div className="">
             <div className="flex flex-wrap md:flex-nowrap my-5">
               <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[16px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
-                View Cart
+              Add to Wish List
               </button>
-              <button className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[16px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
-                Check Out
+              <button onClick={()=>handleCart(singleProduct)} className="px-[20px] md:px-[40px] py-[12px] md:py-[16px] text-[10px] md:text-[16px] font-bold border-2 border-[#000] me-3 hover:bg-black hover:text-white duration-300">
+              Add to Cart
               </button>
             </div>
           </div>
@@ -192,6 +210,21 @@ const ProductsDetails = () => {
               Post
             </button>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+
+          />
+
+<ToastContainer />
 
 
         </Container>

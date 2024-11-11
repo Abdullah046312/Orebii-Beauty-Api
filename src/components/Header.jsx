@@ -67,6 +67,7 @@ const Header = () => {
           
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"> <Link to="/login">Login</Link></li>
           <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/signup">SignUp</Link></li>
+          <li className="hover:text-[#262626] duration-300 ease-in-out hover:font-bold"><Link to="/signup">SignUp</Link></li>
          
         </ul>
         </div>
