@@ -19,6 +19,7 @@ const ShopFirstpart = () => {
     let [show, setShow] = useState(false);
     let [currentPage, setCurrentPage] = useState(1);
     let [perPage, setPerPage] = useState(6);
+<<<<<<< HEAD
     let [activeGrid, setActiveGrid] = useState("");
     let [category, setCategory] = useState([]);
     let [low, setLow] = useState("")
@@ -38,6 +39,23 @@ const ShopFirstpart = () => {
       i++
     ) {
       pageNumber.push(i);
+=======
+    let [activeGrid, setActiveGrid] = useState("")
+    let [category, setCategory] = useState([])
+    let [categoryFilter, setCategoryFilter] = useState([])
+
+    let lastPage = currentPage * perPage
+    let fistPage = lastPage - perPage
+
+    let allPage = info.slice(fistPage, lastPage)
+
+    let pageNumber = []
+
+    for (let i = 0; i < Math.ceil
+        (categoryFilter.length > 0 ? categoryFilter : info.length / perPage); i++){
+        pageNumber.push(i)
+
+>>>>>>> 0f9bc54aa276bf5bac4f6fe45bca265860b8592c
     }
   
     let paginate = (paginate) => {

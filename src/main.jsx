@@ -6,15 +6,14 @@ import { ContextApi } from './components/ContextApi.jsx'
 import store from './store.js'
 import { Provider } from 'react-redux'
 
-
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
- <ContextApi>
-    <App />
-
-  </ContextApi>
-  
-</Provider>,
- 
-  
+  <StrictMode>
+    <Provider store={store}>
+      <ContextApi>
+        <App />
+      </ContextApi>
+    </Provider>
+  </StrictMode>
 )
+
+

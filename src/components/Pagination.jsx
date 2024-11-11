@@ -14,7 +14,11 @@ const Pagination = ({pageNumber, paginate, next, prev, currentPage}) => {
        
        class="flex items-center cursor-pointer justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg">Previous</a>
     </li>
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> 0f9bc54aa276bf5bac4f6fe45bca265860b8592c
     {pageNumber.map((item,i)=>(
     <li onClick={()=>paginate(item)}>
       <a 
