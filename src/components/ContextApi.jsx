@@ -9,7 +9,7 @@ const ContextApi = ({children}) => {
     let [loading, setLoading] = useState(true);
 
     let getData = ()=>{
-        axios.get("https://dummyjson.com/products").then((response)=>{
+        axios.get("https://dummyjson.com/products/search?q=phone").then((response)=>{
             setinfo(response.data.products);
             setLoading(false);
 

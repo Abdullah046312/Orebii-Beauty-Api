@@ -32,7 +32,7 @@ const ProductsDetails = () => {
 
 
   let getSingleProduct = () => {
-    axios.get(`https://dummyjson.com/products/${productId.id}`).then((Response) => {
+    axios.get(`https://dummyjson.com/products/search?q=phone/${productId.id}`).then((Response) => {
       setSingleProduct(Response.data);
       
 

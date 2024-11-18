@@ -289,7 +289,7 @@ const CartInner = () => {
  <div className="flex items-center py-[20px] pl-5 border justify-between">
         <div className="flex items-center">
           <div className="">
-            <select className="border p-2 w-[250px] h-[50px] outline-none shadow focus:!rounded-none focus:ring-0 focus:outline-none focus:ring-[#fff] text-[#767676] font-sans font-normal text-[16px] ">
+            <select className="border p-2 w-[150px] h-[50px] outline-none shadow focus:!rounded-none focus:ring-0 focus:outline-none focus:ring-[#fff] text-[#767676] font-sans font-normal text-[16px] ">
               <option>Size</option>
               <option>S</option>
               <option>M</option>
